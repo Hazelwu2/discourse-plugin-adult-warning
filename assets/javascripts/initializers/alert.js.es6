@@ -3,7 +3,6 @@ import Cookies from '../plugin/jquery.cookie'
 export default {
     name: 'adult-wearning',
     initialize() {
-        Cookies.remove('confirm18', { path: '/' });
         if ( !Cookies.get('confirm18')) {
             showWarningBox()
         }
@@ -11,7 +10,7 @@ export default {
             swal({
                 title: '提示',
                 text: '由於本站部分區域有成人內容，進入 Lezismore 濡沫前，請確認您已滿18歲成年。',
-                imageUrl: 'https://i.imgur.com/fbL4CEn.jpg',
+                imageUrl: 'https://i.imgur.com/wfd9tpy.png',
                 imageWidth: 300,
                 imageHeight: 300,
                 imageAlt: '由於本站部分區域有成人內容，進入 Lezismore 濡沫前，請確認您已滿18歲成年',
@@ -25,7 +24,7 @@ export default {
                 animation: false,
         }).then((result) => {
           if (result.dismiss === swal.DismissReason.cancel) {
-            document.location = "https://lezismore.org/corevalues/terms/"
+            document.location = "https://lezismore.org/underage/"
             } else if (result.value) {
                 Cookies.set('confirm18', 'yes',{ expires: 1, path: '/' });;
             }
